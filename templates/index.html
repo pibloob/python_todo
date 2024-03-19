@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MONOTODO</title>
+<style>
+  body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  .button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  .task-list {
+    background-color: white;
+    color: black;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .task {
+    padding: 10px;
+    border-bottom: 1px solid black;
+  }
+  
+  .task:last-child {
+    border-bottom: none;
+  }
+  
+  .settings-button {
+    float: right;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    padding: 0;
+    line-height: 25px;
+    margin: 5px;
+  }
+
+  .container {
+    margin: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <button class="button">Add Todo</button>
+  <button class="button">Start Pomodoro</button>
+  <button class="settings-button">⚙️</button>
+  
+  <ul class="task-list">
+    <li class="task">Task #1 <span class="tag">read</span></li>
+    <li class="task">Task #2 <span class="tag">work</span></li>
+    <!-- Add more tasks here -->
+  </ul>
+</div>
+</body>
+</html>
