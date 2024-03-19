@@ -8,7 +8,8 @@
   body {
     background-color: black;
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
   }
   
   .button {
@@ -20,18 +21,25 @@
     cursor: pointer;
     border-radius: 15px;
     text-align: center;
+    min-width: 0; /* Overrules de default min-width die browsers aan buttons geven */
+    font-size: 1.3rem;
   }
 
   .button-group {
-    display: flex;
+  display: flex;
+  justify-content: space-between; /* Dit zorgt ervoor dat de knoppen centraal in de groep staan */
   }
-    
-    #start-pomodoro {
-    margin-right: 5px; /* Voegt een kleine ruimte toe tussen de twee knoppen */
-    }
 
     #todo {
     width: 400px;
+    }
+
+    #start-pomodoro {
+    width: calc((400px - 5px) / 2); /* Trek de marge af van de totale breedte en deel door twee */
+    }
+
+    #settings {
+    width: calc((400px - 5px) / 2); /* Dezelfde breedte als de start-pomodoro knop */
     }
   
   .task-list {
@@ -54,6 +62,24 @@
   .task:last-child {
     border-bottom: none;
   }
+
+  .welcome-box {
+    position: absolute;
+    top: 10px;
+    right: 40px; 
+    width: 400px; /* Of de gewenste breedte van je box */
+    padding: 10px;
+    color: white;
+    text-align: left;
+}
+
+/* Stijlen om de tekst in de box te stijlen */
+.welcome-box p {
+    margin: 0; /* Verwijdert de standaard marge van de paragraaf */
+    line-height: 2; /* Ruimte tussen de regels */
+    font-size: 1.7rem; /* Standaard lettergrootte */
+    /* Voeg hier eventuele extra stijlen toe */
+}
   
   .container {
     display: flex;
@@ -65,6 +91,11 @@
 </style>
 </head>
 <body>
+<div class="welcome-box">
+    <p>
+        Welcome to MONOTODO. Your distraction free todo-list. Add your tasks and be productive <3
+    </p>
+</div>
 <div class="container">
   <button class="button" id="todo">Add Todo</button>
 
