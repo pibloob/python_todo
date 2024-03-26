@@ -41,6 +41,10 @@
     #settings {
     width: calc((400px - 5px) / 2); /* Dezelfde breedte als de start-pomodoro knop */
     }
+
+    .hidden {
+      display: hidden;
+    }
   
   .task-list {
     background-color: white;
@@ -97,7 +101,7 @@
     </p>
 </div>
 <div class="container">
-  <button class="button" id="todo">Add Todo</button>
+  <button class="button" id="todo">Add ToDo</button>
 
   <div class="button-group">
     <button class="button" id="start-pomodoro">Start Pomodoro</button>
@@ -112,10 +116,19 @@
   </ul>
 </div>
 <!--voor nieuwe task-->
-<form action="/add-todo" method="post">
-    <input type="text" name="title" placeholder="Enter task title" required>
-    <input type="text" name="tag" placeholder="Enter task tag">
-    <input type="submit" value="Add Todo">
-  </form>  
+<form action="/add-todo" method="post" class="hidden" id="add-todo-form">
+  <input type="text" name="title" placeholder="Enter task title" required>
+  <input type="text" name="tag" placeholder="Enter task tag">
+  <input type="submit" value="Add Todo">
+</form>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.getElementById('todo').addEventListener('click', () => {
+        document.getElementById('add-todo-form').classList.toggle('hidden');
+      });
+    });
+  </script>  
 </body>
 </html>
