@@ -1,4 +1,4 @@
-/* Background and text color for the whole page */
+/* Base styles: background, tasktiles, buttons */
 body {
     background-color: black;
     color: white;
@@ -6,7 +6,6 @@ body {
     font-size: 1.3rem;
   }
   
-  /* Style for all buttons */
   .button {
     background-color: white;
     color: black;
@@ -28,7 +27,6 @@ body {
     justify-content: space-between;
   }
   
-  /* Custom width for specific buttons */
   #todo {
     width: 400px;
   }
@@ -46,17 +44,15 @@ body {
   #add-todo-form {
     position: absolute;
     top: 50%;
-    left: 80px;
+    left: 300px;
     transform: translateY(-50%);
     width: 250px;
     background-color: white;
     border-radius: 15px;
     padding: 20px;
-    display: flex;
     flex-direction: column;
-    /* Ensure the form is hidden by default */
-    display: none;
     z-index: 100;
+    display: none; /* Hide by default, show on click */
   }
   
   #add-todo-form input[type="submit"] {
@@ -112,10 +108,9 @@ body {
   #pomodoro-timer {
     position: absolute;
     top: calc(50% - 100px);
-    left: 80px;
-    transform: translateY(-50%);
+    left: 300px;
+    transform: translateY(-150%);
     width: 250px;
-    background-color: white;
     border-radius: 15px;
     padding: 20px;
     display: none;
@@ -134,8 +129,8 @@ body {
   /* Welcome message style */
   .welcome-box {
     position: absolute;
-    top: 10px;
-    right: 40px;
+    top: 110px;
+    right: 140px;
     width: 400px;
     padding: 10px;
     color: white;
@@ -158,3 +153,69 @@ body {
     height: 100vh;
   }
   
+  /* Bubble Animations */
+@keyframes bubbleAnimation {
+  0% {
+    transform: scale(0.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+    bottom: 100%;
+  }
+}
+
+.bubble {
+  position: absolute;
+  bottom: -100px; /* Start off-screen */
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: bubbleAnimation 25s linear infinite;
+}
+
+/* Ensure your container can hold absolute positioned bubbles */
+.container {
+  position: relative;
+  overflow: hidden; /* Prevents bubbles from scrolling the page */
+}
+
+/* Styles for settings panel */
+#settings-panel {
+  /* Add styles for the settings panel to slide in/out */
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background: #f3f3f3; /* Light background for settings panel */
+  border-left: 1px solid #ccc; /* Add a border to the left */
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  display: none;
+}
+
+#settings-panel.open {
+  transform: translateX(0);
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #333;
+  color: #ffffff;
+}
+
+.dark-mode .task {
+  background-color: #555;
+}
+
+.dark-mode .button {
+  background-color: #666;
+  color: #ffffff;
+}
+
+/* Hide form initially */
+.hidden {
+  display: none;
+}

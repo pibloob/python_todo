@@ -9,35 +9,50 @@
 </head>
 
 <body>
-  <div class="welcome-box">
-    <p>Welcome to MONOTODO. Your distraction free todo-list. Add your tasks and be productive <3</p>
-  </div>
-  <div class="container">
-    <button class="button" id="todo">Add ToDo</button>
-
-    <div class="button-group">
-      <button class="button" id="start-pomodoro">Start Pomodoro</button>
-      <button class="button" id="settings">⚙️</button>
+    <div class="welcome-box">
+      <p>Welcome to MONOTODO. Your distraction free todo-list. Add your tasks and be productive! </p>
     </div>
-    <ul class="task-list">
-      <li class="task">Task #1 <span class="tag">read</span></li>
-      <li class="task">Task #2 <span class="tag">work</span></li>
-      <li class="task"></li>
-    </ul>
-    <!-- For new task -->
-    <form action="/add-todo" method="post" class="hidden" id="add-todo-form">
-      <input type="text" name="title" placeholder="Enter task title" required>
-      <input type="text" name="tag" placeholder="Enter task tag">
-      <input type="submit" value="Add Todo">
-    </form>
+    <div class="container">
+      <button class="button" id="todo">Add ToDo</button>
 
-    <div id="pomodoro-timer">
-      <div id="timer">50:00</div>
-      <div id="set">Set 1/3</div>
-    </div>      
+      <div class="button-group">
+        <button class="button" id="start-pomodoro">Start Pomodoro</button>
+        <button class="button" id="settings">⚙️</button>
+      </div>
+      <ul class="task-list">
+        <li class="task">Task #1 <span class="tag">read</span></li>
+        <li class="task">Task #2 <span class="tag">work</span></li>
+        <li class="task"></li>
+      </ul>
+      <!-- For new task -->
+      <form action="/add-todo" method="post" class="hidden" id="add-todo-form">
+        <input type="text" name="title" placeholder="Enter task title" required>
+        <input type="text" name="tag" placeholder="Enter task tag">
+        <input type="submit" value="Add Todo">
+      </form>
+
+      <div id="pomodoro-timer">
+        <div id="timer">50:00</div>
+        <div id="set">Set 1/3</div>
+      </div>      
+
+      <!-- Settings Panel -->
+      <div id="settings-panel" style="display: none;">
+        <div class="settings-option">
+          <label for="dark-mode-toggle">Dark/Light Mode</label>
+          <input type="checkbox" id="dark-mode-toggle">
+        </div>
+        <div class="settings-option">
+          <label for="bubbles-toggle">Bubble Effect</label>
+          <input type="checkbox" id="bubbles-toggle" checked>
+        </div>
+        <!-- Close button or area to hide the settings panel -->
+        <button id="close-settings">Close</button>
+      </div>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="static\scripts.js"></script>
 </body>
 
 </html>
