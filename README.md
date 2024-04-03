@@ -18,7 +18,6 @@ git clone [this repo](https://github.com/pibloob/python_todo.git)
 
 2. Install the required dependencies:
 pip install -r requirements.txt
-(TODO)
 
 3. Run the application:
 python app.py

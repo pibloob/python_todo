@@ -17,8 +17,6 @@ body {
     /* Round corners for buttons */
     text-align: center;
     min-width: 0;
-    /* Removes the default min-width */
-    font-size: 1.3rem;
   }
   
   /* Flexbox container for the buttons to distribute them over the space */
@@ -29,22 +27,25 @@ body {
   
   #todo {
     width: 400px;
+    font-size: 1.3rem;
   }
   
   #start-pomodoro {
     width: calc((400px - 5px) / 2);
     /* Half the space minus the margin */
+    font-size: 1.3rem;
   }
   
   #settings {
     width: calc((400px - 5px) / 2);
+    font-size: 1.3rem;
   }
   
   /* Style for the form with rounded corners and flexbox for layout */
   #add-todo-form {
     position: absolute;
     top: 50%;
-    left: 300px;
+    left: 250px;
     transform: translateY(-50%);
     width: 250px;
     background-color: white;
@@ -89,7 +90,7 @@ body {
     border-radius: 15px;
     text-align: center;
     height: 500px;
-    width: 500px;
+    width: 700px;
     display: block;
     flex-shrink: 0;
   }
@@ -98,6 +99,9 @@ body {
   .task {
     padding: 10px;
     border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
   /* Remove the underline from the last task */
@@ -183,21 +187,17 @@ body {
 
 /* Styles for settings panel */
 #settings-panel {
-  /* Add styles for the settings panel to slide in/out */
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 250px;
-  height: 100%;
-  background: #f3f3f3; /* Light background for settings panel */
+  padding: 20px;
+  border-radius: 15px;
+  height: 200px;
+  width: 500px;
+  color: white;
+  background: #333; /* Light background for settings panel */
   border-left: 1px solid #ccc; /* Add a border to the left */
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
-  display: none;
-}
-
-#settings-panel.open {
-  transform: translateX(0);
+  z-index: 1000; /* High z-index to ensure it's on top */
+  visibility: hidden; /* Start with the panel hidden */
+  top: 110px;
+  right: 140px;
 }
 
 /* Dark mode styles */
@@ -213,9 +213,4 @@ body {
 .dark-mode .button {
   background-color: #666;
   color: #ffffff;
-}
-
-/* Hide form initially */
-.hidden {
-  display: none;
 }

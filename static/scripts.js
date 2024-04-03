@@ -74,21 +74,46 @@ function generateBubble() {
   }
 }
 
-// Function to toggle the settings panel
-function toggleSettingsPanel() {
-  const settingsPanel = document.getElementById('settings-panel');
-  settingsPanel.style.display = settingsPanel.style.display === 'block' ? 'none' : 'block';
+// Initializes settings panel functionality
+function initializeSettingsPanel() {
+  // Toggle settings panel visibility
+  document.getElementById('settings').addEventListener('click', function() {
+    const panel = document.getElementById('settings-panel');
+    const isVisible = panel.style.visibility === 'visible';
+
+    if (isVisible) {
+      panel.style.visibility = 'hidden';
+      panel.style.transform = 'translateX(100%)'; // Move panel off-screen
+    } else {
+      panel.style.visibility = 'visible';
+      panel.style.transform = 'translateX(0)'; // Move panel back to its original position
+    }
+  });
+
+  // Add other event listeners (for bubbles toggle and clear all tasks button)
+  document.getElementById('bubbles-toggle').addEventListener('change', function() {
+    // Your existing code...
+  });
+
+  document.getElementById('clear-tasks-button').addEventListener('click', function() {
+    // Your existing code...
+  });
+
+  // Event listener for the close settings button
+  document.getElementById('close-settings').addEventListener('click', function() {
+    // Hide the settings panel
+    document.getElementById('settings-panel').style.visibility = 'hidden';
+    document.getElementById('settings-panel').style.transform = 'translateX(100%)'; // Move panel off-screen
+  });
 }
 
-
+//////////////////////////////////////////////////////////////////////////////////////////
 // Initialize event listeners and functionalities
 function initApp() {
   document.getElementById('todo').addEventListener('click', toggleFormVisibility);
   startPomodoroTimer();
   setInterval(generateBubble, 2000); // Generate a new bubble every 2 seconds
-
-  const settingsBtn = document.getElementById('settings');
-  settingsBtn.addEventListener('click', toggleSettingsPanel);
+  initializeSettingsPanel();
 }
 
 document.addEventListener('DOMContentLoaded', initApp);
