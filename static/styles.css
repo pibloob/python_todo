@@ -1,45 +1,160 @@
-body, html {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, sans-serif;
+/* Background and text color for the whole page */
+body {
     background-color: black;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.task-container {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+  }
+  
+  /* Style for all buttons */
+  .button {
     background-color: white;
     color: black;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 20px;
-    /* Voeg hier meer styling toe zoals breedte, hoogte, etc. */
-}
-
-button {
     border: none;
     padding: 10px 20px;
     margin: 5px;
-    border-radius: 5px;
     cursor: pointer;
-}
-
-#add-task {
+    border-radius: 15px;
+    /* Round corners for buttons */
+    text-align: center;
+    min-width: 0;
+    /* Removes the default min-width */
+    font-size: 1.3rem;
+  }
+  
+  /* Flexbox container for the buttons to distribute them over the space */
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Custom width for specific buttons */
+  #todo {
+    width: 400px;
+  }
+  
+  #start-pomodoro {
+    width: calc((400px - 5px) / 2);
+    /* Half the space minus the margin */
+  }
+  
+  #settings {
+    width: calc((400px - 5px) / 2);
+  }
+  
+  /* Style for the form with rounded corners and flexbox for layout */
+  #add-todo-form {
+    position: absolute;
+    top: 50%;
+    left: 80px;
+    transform: translateY(-50%);
+    width: 250px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /* Ensure the form is hidden by default */
+    display: none;
+    z-index: 100;
+  }
+  
+  #add-todo-form input[type="submit"] {
+    background-color: transparent;
+    color: black;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+  }
+  
+  #add-todo-form input[type="submit"]:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  #add-todo-form input[type="text"] {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+  
+  /* White bar for the task list with round corners and centered text */
+  .task-list {
     background-color: white;
     color: black;
-    /* Maak de knop groter */
-}
-
-#start-pomodoro, #settings {
-    background-color: white; /* Lichtgele kleur*/
-    color: black;
-    /*Maak deze knoppen half zo groot als de 'Add Task'-knop */
-    }
+    list-style: none;
+    padding: 10px;
+    border-radius: 15px;
+    text-align: center;
+    height: 500px;
+    width: 500px;
+    display: block;
+    flex-shrink: 0;
+  }
+  
+  /* Style for each task with an underline, except the last one */
+  .task {
+    padding: 10px;
+    border-bottom: 1px solid black;
+  }
+  
+  /* Remove the underline from the last task */
+  .task:last-child {
+    border-bottom: none;
+  }
+  
+  #pomodoro-timer {
+    position: absolute;
+    top: calc(50% - 100px);
+    left: 80px;
+    transform: translateY(-50%);
+    width: 250px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    display: none;
+    z-index: 100;
+    text-align: center;
+  }
+  
+  #timer {
+    font-size: 2rem;
+  }
+  
+  #set {
+    font-size: 1rem;
+  }
+  
+  /* Welcome message style */
+  .welcome-box {
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    width: 400px;
+    padding: 10px;
+    color: white;
+    text-align: left;
+  }
+  
+  /* Text style within the welcome box */
+  .welcome-box p {
+    margin: 0;
+    line-height: 2;
+    font-size: 1.7rem;
+  }
+  
+  /* Flex container for the entire content with vertical and horizontal centering */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
