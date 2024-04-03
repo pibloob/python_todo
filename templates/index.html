@@ -12,6 +12,7 @@
     <div class="welcome-box">
       <p>Welcome to MONOTODO. Your distraction free todo-list. Add your tasks and be productive! </p>
     </div>
+
     <div class="container">
       <button class="button" id="todo">Add ToDo</button>
 
@@ -19,17 +20,33 @@
         <button class="button" id="start-pomodoro">Start Pomodoro</button>
         <button class="button" id="settings">⚙️</button>
       </div>
+
+      <!-- ToDo List -->
       <ul class="task-list">
-        <li class="task">Task #1 <span class="tag">read</span></li>
-        <li class="task">Task #2 <span class="tag">work</span></li>
-        <li class="task"></li>
+        {% for todo in todos %}
+        <li class="task">
+          <div class="task-content">
+            <span class="task-title">{{ todo.title }}</span>
+            <sub class="task-tag">{{ todo.tag }}</sub>
+          </div>
+          <!-- Complete and Delete buttons -->
+          <div class="task-actions">
+            <button class="button" onclick="location.href='/toggle-complete/{{ todo.id }}'">
+              {% if todo.complete %} Incomplete {% else %} Complete {% endif %}
+            </button>
+            <button class="button" onclick="location.href='/delete-todo/{{ todo.id }}'">Delete</button>
+          </div>
+        </li>
+        {% endfor %}
       </ul>
+
+
       <!-- For new task -->
       <form action="/add-todo" method="post" class="hidden" id="add-todo-form">
         <input type="text" name="title" placeholder="Enter task title" required>
         <input type="text" name="tag" placeholder="Enter task tag">
         <input type="submit" value="Add Todo">
-      </form>
+      </form>      
 
       <div id="pomodoro-timer">
         <div id="timer">50:00</div>
@@ -42,6 +59,7 @@
           <label for="dark-mode-toggle">Dark/Light Mode</label>
           <input type="checkbox" id="dark-mode-toggle">
         </div>
+
         <div class="settings-option">
           <label for="bubbles-toggle">Bubble Effect</label>
           <input type="checkbox" id="bubbles-toggle" checked>
@@ -49,9 +67,8 @@
         <!-- Close button or area to hide the settings panel -->
         <button id="close-settings">Close</button>
       </div>
-    </div>
-  </div>
 
+    </div>
   <script src="static\scripts.js"></script>
 </body>
 

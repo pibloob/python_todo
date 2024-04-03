@@ -14,7 +14,7 @@ MONOTODO is a minimalistic to-do web application designed to reduce distractions
 ## Installation
 
 1. Clone the repository:
-git clone [this rep](https://github.com/pibloob/python_todo.git)
+git clone [this repo](https://github.com/pibloob/python_todo.git)
 
 2. Install the required dependencies:
 pip install -r requirements.txt
@@ -35,4 +35,4 @@ Everyone is welcome to contribute to this project. If you have suggestions for i
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE.md). You are free to use, modify, and distribute this software in accordance with the license. For more details, see the LICENSE file in this repository.
+This project is open source and available under the [MIT License](LICENSE.md). You are free to use, modify, and distribute this software in accordance with the license.
